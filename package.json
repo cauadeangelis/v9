@@ -1,0 +1,16 @@
+{
+  "name": "numera-academy",
+  "version": "9.0.0",
+  "private": true,
+  "description": "Numera Academy: laboratório interativo de métodos numéricos (Modelagem Computacional). Site estático em dist/, sem build.",
+  "scripts": {
+    "servir": "python3 -m http.server 8000 -d dist",
+    "testar": "node tests/verify.cjs && node tests/treino/conferir-com-motor.cjs && node tests/pwa/atualizar-sw.cjs --check",
+    "gerar-treino": "python3 tests/treino/gerar-treino.py dist/treino-data.js",
+    "atualizar": "node tests/atualizar.cjs",
+    "testar-navegador": "cd tests/e2e && node checar-compat.mjs && node testar-fluxos.mjs http://127.0.0.1:8000/ && node testar-offline.mjs http://127.0.0.1:8000/ && node auditar-a11y.mjs http://127.0.0.1:8000/"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
